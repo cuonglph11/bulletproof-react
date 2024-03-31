@@ -7,8 +7,8 @@ import { db, persistDb } from '../db';
 import { authenticate, delayedResponse, hash, requireAuth } from '../utils';
 
 type RegisterBody = {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
   password: string;
   teamId?: string;
@@ -43,7 +43,7 @@ export const authHandlers = [
       if (!userObject.teamId) {
         const team = db.team.create({
           id: nanoid(),
-          name: userObject.teamName ?? `${userObject.firstName} Team`,
+          name: userObject.teamName ?? `${userObject.firstname} Team`,
           createdAt: Date.now(),
         });
         persistDb('team');

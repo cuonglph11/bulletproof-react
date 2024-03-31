@@ -5,8 +5,8 @@ import { UserResponse } from '../types';
 export type RegisterCredentialsDTO = {
   email: string;
   password: string;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
 };
 
 export const registerWithEmailAndPassword = (

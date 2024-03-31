@@ -11,8 +11,8 @@ import { useAuth } from '@/lib/auth';
 const schema = z
   .object({
     email: z.string().min(1, 'Required'),
-    firstName: z.string().min(1, 'Required'),
-    lastName: z.string().min(1, 'Required'),
+    firstname: z.string().min(1, 'Required'),
+    lastname: z.string().min(1, 'Required'),
     password: z.string().min(1, 'Required'),
   })
   .and(
@@ -24,8 +24,8 @@ const schema = z
   );
 
 type RegisterValues = {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
   password: string;
   teamId?: string;
@@ -63,14 +63,14 @@ export const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
             <InputField
               type="text"
               label="First Name"
-              error={formState.errors['firstName']}
-              registration={register('firstName')}
+              error={formState.errors['firstname']}
+              registration={register('firstname')}
             />
             <InputField
               type="text"
               label="Last Name"
-              error={formState.errors['lastName']}
-              registration={register('lastName')}
+              error={formState.errors['lastname']}
+              registration={register('lastname')}
             />
             <InputField
               type="email"

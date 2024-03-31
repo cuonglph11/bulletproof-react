@@ -7,8 +7,8 @@ import { requireAuth, requireAdmin, delayedResponse } from '../utils';
 
 type ProfileBody = {
   email: string;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   bio: string;
 };
 

@@ -8,6 +8,7 @@ import { publicRoutes } from './public';
 
 export const AppRoutes = () => {
   const auth = useAuth();
+  // console.log(auth, 'auth');
 
   const commonRoutes = [{ path: '/', element: <Landing /> }];
 

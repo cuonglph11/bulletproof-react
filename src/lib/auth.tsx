@@ -13,8 +13,12 @@ import {
 import storage from '@/utils/storage';
 
 async function handleUserResponse(data: UserResponse) {
-  const { jwt, user } = data;
-  storage.setToken(jwt);
+  const { token, user } = data;
+  console.log({ token, user });
+
+  storage.setToken(token);
+  console.log(storage.getToken(), 'storage token');
+
   return user;
 }
 
@@ -28,6 +32,8 @@ async function loadUser() {
 
 async function loginFn(data: LoginCredentialsDTO) {
   const response = await loginWithEmailAndPassword(data);
+  console.log(response, 'response from api');
+
   const user = await handleUserResponse(response);
   return user;
 }

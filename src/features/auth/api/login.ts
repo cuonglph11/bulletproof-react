@@ -1,5 +1,6 @@
 import { axios } from '@/lib/axios';
 
+import { authApi } from '../const';
 import { UserResponse } from '../types';
 
 export type LoginCredentialsDTO = {
@@ -8,5 +9,5 @@ export type LoginCredentialsDTO = {
 };
 
 export const loginWithEmailAndPassword = (data: LoginCredentialsDTO): Promise<UserResponse> => {
-  return axios.post('/auth/login', data);
+  return axios.post(`${authApi}/admin/login`, data);
 };

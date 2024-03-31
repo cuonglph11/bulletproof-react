@@ -2,16 +2,15 @@ import { PencilIcon } from '@heroicons/react/solid';
 import * as z from 'zod';
 
 import { Button } from '@/components/Elements';
-import { Form, FormDrawer, InputField, TextAreaField } from '@/components/Form';
+import { Form, FormDrawer, InputField } from '@/components/Form';
 import { useAuth } from '@/lib/auth';
 
 import { UpdateProfileDTO, useUpdateProfile } from '../api/updateProfile';
 
 const schema = z.object({
   email: z.string().min(1, 'Required'),
-  firstName: z.string().min(1, 'Required'),
-  lastName: z.string().min(1, 'Required'),
-  bio: z.string(),
+  firstname: z.string().min(1, 'Required'),
+  lastname: z.string().min(1, 'Required'),
 });
 
 export const UpdateProfile = () => {
@@ -45,10 +44,9 @@ export const UpdateProfile = () => {
         }}
         options={{
           defaultValues: {
-            firstName: user?.firstName,
-            lastName: user?.lastName,
+            firstname: user?.firstname,
+            lastname: user?.lastname,
             email: user?.email,
-            bio: user?.bio,
           },
         }}
         schema={schema}
@@ -57,25 +55,19 @@ export const UpdateProfile = () => {
           <>
             <InputField
               label="First Name"
-              error={formState.errors['firstName']}
-              registration={register('firstName')}
+              error={formState.errors['firstname']}
+              registration={register('firstname')}
             />
             <InputField
               label="Last Name"
-              error={formState.errors['lastName']}
-              registration={register('lastName')}
+              error={formState.errors['lastname']}
+              registration={register('lastname')}
             />
             <InputField
               label="Email Address"
               type="email"
               error={formState.errors['email']}
               registration={register('email')}
-            />
-
-            <TextAreaField
-              label="Bio"
-              error={formState.errors['bio']}
-              registration={register('bio')}
             />
           </>
         )}

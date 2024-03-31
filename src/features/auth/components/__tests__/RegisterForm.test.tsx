@@ -10,8 +10,8 @@ test('should register new user and call onSuccess cb which should navigate the u
 
   await render(<RegisterForm onSuccess={onSuccess} />, { user: null });
 
-  userEvent.type(screen.getByLabelText(/first name/i), newUser.firstName);
-  userEvent.type(screen.getByLabelText(/last name/i), newUser.lastName);
+  userEvent.type(screen.getByLabelText(/first name/i), newUser.firstname);
+  userEvent.type(screen.getByLabelText(/last name/i), newUser.lastname);
   userEvent.type(screen.getByLabelText(/email address/i), newUser.email);
   userEvent.type(screen.getByLabelText(/password/i), newUser.password);
   userEvent.type(screen.getByLabelText(/team name/i), newUser.teamName);

@@ -1,4 +1,7 @@
 export type BaseEntity = {
   id: string;
-  createdAt: number;
+  createdAt: string;
+  updatedAt: string;
+  createdBy: string;
+  updatedBy: string;
 };

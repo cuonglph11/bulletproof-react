@@ -15,10 +15,10 @@ describe('smoke', () => {
 
     cy.findByRole('textbox', {
       name: /first name/i,
-    }).type(user.firstName);
+    }).type(user.firstname);
     cy.findByRole('textbox', {
       name: /last name/i,
-    }).type(user.lastName);
+    }).type(user.lastname);
     cy.findByRole('textbox', {
       name: /email address/i,
     }).type(user.email);
@@ -33,7 +33,7 @@ describe('smoke', () => {
     }).click();
 
     cy.findByRole('heading', {
-      name: `Welcome ${user.firstName} ${user.lastName}`,
+      name: `Welcome ${user.firstname} ${user.lastname}`,
     }).should('exist');
 
     // log out:
@@ -58,7 +58,7 @@ describe('smoke', () => {
     }).click();
 
     cy.findByRole('heading', {
-      name: `Welcome ${user.firstName} ${user.lastName}`,
+      name: `Welcome ${user.firstname} ${user.lastname}`,
     }).should('exist');
 
     cy.findByRole('link', {
